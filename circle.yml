@@ -1,3 +1,6 @@
+general:
+  artifacts:
+    - "target/spring-boot-sample-*.jar"
 machine:
   java:
     version: oraclejdk8
