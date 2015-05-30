@@ -6,6 +6,7 @@ machine:
     version: oraclejdk8
 dependencies:
   override:
+    - pip install awscli
     - mvn dependency:resolve
 test:
   override:
@@ -15,3 +16,8 @@ deployment:
     branch: master
     commands:
       - mvn package
+      - aws --version
+      - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      - aws configure set default.region ap-northeast-1
+      - aws s3 cp target/spring-boot-sample-*.jar s3://spring-boot-sample/.
