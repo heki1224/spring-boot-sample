@@ -6,6 +6,7 @@ machine:
     version: oraclejdk8
 dependencies:
   override:
+    - pip install --upgrade pip
     - pip install awscli
     - mvn dependency:resolve
 test:
